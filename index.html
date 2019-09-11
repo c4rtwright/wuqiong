@@ -2,13 +2,59 @@
 	<head>
 		<title>Wuqiong</title>
 		<link rel="stylesheet" href="src/css/bulma.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+		<style>
+			.input {
+				box-shadow: none;
+				border-radius: 0;
+			}
+			.title, .label {
+				font-family: "Lato", sans-serif;
+			}
+			.login div:first-child {
+				font-size: 1.5em;
+				font-family: "Lato", sans-serif;
+				padding-bottom: .6em;
+			}
+		</style>
 	</head>
 	<body>
 		<section style="border: 1px solid black;" class="section">
-			<div class='container'>
-				<h1 class="title is-1">Wuqiong</h1>
-				<h2 class="subtitle">Endless Job Stream</h3>
-			</div>
+			<header class="hero">
+				<section class="hero-body">
+					<div class="container">
+						<h1 class="title is-1">Wuqiong</h1>
+						<h2 class="subtitle">Endless Job Stream</h2>
+					</div>
+				</section>
+			</header>
+			<section class="section">
+				<div class="columns">
+					<div class="column content">
+						<p>Wuqiong is the premier place to simulate the endless horror of the job search!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper congue metus at imperdiet. Fusce aliquam laoreet libero, eu eleifend mi cursus vitae. Morbi interdum sed dui quis interdum.</p>
+					</div>
+					<div class="column">
+						<section class="login">
+							<div>
+								Already a member? Sign in here!
+							</div>
+							<div class="field">
+								<label class="label is-medium">Username</label>
+								<div class="control">
+									<input class="input is-medium" type="text" placeholder="username">
+								</div>    
+							</div>
+							<div class="field">
+								<label class="label is-medium" for="password">Password</label>
+								<div class="control">
+									<input class="input is-medium" type="password">
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
 		</section>
 	</body>
 </html>
