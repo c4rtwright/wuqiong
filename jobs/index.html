@@ -8,7 +8,7 @@
 		<link href="../src/css/main.css" rel="stylesheet">
 		<style>
 			.search {
-				max-width: 50vw;
+				max-width: 55vw;
 				margin: 2em 2em 2em 2em;
 				padding: 1em 1em 1em 1em;
 			}
@@ -20,7 +20,7 @@
 				padding: .5em;
 			}
 			.opt-stack dl > dt {
-				font-size: 1.44em;
+				font-size: 1.5em;
 				margin: .25em 0 0 0;
 			} 
 			.opt-stack dl > dd {
@@ -44,7 +44,14 @@
 				font-size: 1.4em;
 				margin: .15em 0 0 0;
 			}
-
+			.include .title, .exclude .title {
+				font-weight: normal;
+				margin: 1em 0 .5em 0;
+			}
+			.include .title, .exclude .title {
+				font-weight: normal;
+				margin: 1em 0 .5em 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -82,7 +89,32 @@
 											DevOps
 										</label>
 									</dd>
+									<dd>
+										<label class="checkbox">
+											<input type="checkbox">
+											Design
+										</label>
+									</dd>
 								</dl>
+							</div>
+							<div class="opt-pref" style="border: 1px solid purple; padding: 1em;">
+								<h4 class="title is-4" style="margin: .2em 0 0 0; font-weight: normal;">Tech Preferences</h4>
+								<div class="include">
+									<h6 class="title is-6">Include the following:</h6>
+									<div class="field">
+										<div class="control">
+											<input class="input" type="text">
+										</div>
+									</div>
+								</div>
+								<div class="exclude">
+									<h6 class="title is-6">Exclude the following:</h6>
+									<div class="field">
+										<div class="control">
+											<input class="input" type="text">
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -98,6 +130,11 @@
 		</section>
 	</body>
 </html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+<script>
+	let jd = faker.name.jobDescriptor();
+	console.log(jd)
+</script>
 <script src="../src/js/vue/vue.min.js"></script>
 <script>
 	Vue.component('user-nav', {
@@ -109,14 +146,14 @@
 			  Wuqiong
 			</a>
 
-			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav">
 			  <span aria-hidden="true"></span>
 			  <span aria-hidden="true"></span>
 			  <span aria-hidden="true"></span>
 			</a>
 		  </div>
 
-		  <div id="navbarBasicExample" class="navbar-menu">
+		  <div id="wu-nav" class="navbar-menu">
 		      <div class="navbar-start">
 			  <a class="navbar-item">
 				Home
@@ -176,7 +213,14 @@
 	})
 	let vm = new Vue({
 		el: ".jobs",
-		data: {},
+		data: {
+			search_options: {
+				keywords: {},
+				opt_stack: {},
+				opt_pref: {},
+				opt_exclude: {}
+			}
+		},
 		methods: {},
 		mounted() {
 			console.log('get mounted')
