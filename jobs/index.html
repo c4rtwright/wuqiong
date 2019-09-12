@@ -16,6 +16,35 @@
 				font-size: 2em;
 				font-family: "Lato", sans-serif;
 			}
+			.opt-stack {
+				padding: .5em;
+			}
+			.opt-stack dl > dt {
+				font-size: 1.44em;
+				margin: .25em 0 0 0;
+			} 
+			.opt-stack dl > dd {
+				font-size: 1.2em;
+				margin: .5em 0 1em 0;
+			}
+			.options-list {
+				display: grid;
+				border-top: 1px solid black;
+				grid-template-columns: repeat(3, 17em);
+				border-bottom: 1px solid black;
+				padding: 1em;
+				margin: 1em 0 1em 0;
+			}
+			.search header {
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.search header a {
+				font-size: 1.4em;
+				margin: .15em 0 0 0;
+			}
+			
 		</style>
 	</head>
 	<body>
@@ -25,19 +54,49 @@
 			</header>
 			<div class="container">			
 				<div class="search">
-					<h1 class="title">Search Jobs</h1>
-					<div class="search-form">
-						<div class="field">
-							<div class="control has-icons-left">
-								<input class="input is-medium" type="text">
-								<p class="help">Enter a job title (e.g.: "Web Devloper")</p>
-								<span class="icon is-left">
-									<i class="fas fa-search"></i>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
+    <header style="
+    display: flex;
+    justify-content: space-between;
+">
+    	<h1 class="title" style="">Search Jobs</h1>
+        <a href="#" style="font-size: 1.4em;margin: .15em 0 0 0;">Search Options</a>
+    </header>
+
+ <div class="search-form">
+    <div class="options-list">
+        <div>
+            <div class="opt-stack" style="
+    border: 1px solid purple;
+">
+            <dl>
+        <dt>Stack Preference</dt>
+        <dd>
+        	<label class="checkbox">
+                <input type="checkbox" checked="">
+                Front-End
+			</label>
+        </dd>
+        <dd>
+        	<label class="checkbox">
+                <input type="checkbox">
+                Back-End
+			</label>
+        </dd>
+        <dd>
+        	<label class="checkbox">
+                <input type="checkbox">
+                DevOps
+			</label>
+        </dd>
+    </dl>
+            </div>
+</div>
+    </div>
+    <div class="field"><div class="control has-icons-left"><input type="text" class="input is-medium"> <p class="help">Enter a job title (e.g.: "Web Developer")</p> <span class="icon is-left"><i class="fas fa-search"></i></span></div></div>
+    
+     
+    </div>
+</div>
 			</div>
 		</section>
 	</body>
@@ -61,20 +120,17 @@
 		  </div>
 
 		  <div id="navbarBasicExample" class="navbar-menu">
-			<div class="navbar-start">
+		      <div class="navbar-start">
 			  <a class="navbar-item">
 				Home
 			  </a>
-
 			  <a class="navbar-item">
 				Jobs
 			  </a>
-
 			  <div class="navbar-item has-dropdown is-hoverable">
 				<a class="navbar-link">
 				  More
 				</a>
-
 				<div class="navbar-dropdown">
 				  <a class="navbar-item">
 					My Profile
