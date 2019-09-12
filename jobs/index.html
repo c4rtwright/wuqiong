@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<title>Wuqiong</title>
+		<link href="../src/css/bulma/bulma.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="../src/css/main.css" rel="stylesheet">
+		<style>
+			.search {
+				max-width: 50vw;
+				margin: 2em 2em 2em 2em;
+				padding: 1em 1em 1em 1em;
+			}
+			.navbar-brand a.navbar-item:first-child {
+				font-size: 2em;
+				font-family: "Lato", sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<section class="section jobs">
+			<header>
+				<user-nav></user-nav>
+			</header>
+			<div class="container">			
+				<div class="search">
+					<h1 class="title">Search Jobs</h1>
+					<div class="search-form">
+						<div class="field">
+							<div class="control has-icons-left">
+								<input class="input is-medium" type="text">
+								<p class="help">Enter a job title (e.g.: "Web Devloper")</p>
+								<span class="icon is-left">
+									<i class="fas fa-search"></i>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
+<script src="../src/js/vue/vue.min.js"></script>
+<script>
+	Vue.component('user-nav', {
+		template: `
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+		  <div class="navbar-brand">
+			<a class="navbar-item" href="../index.html">
+			  <img src="../logo.png">
+			  Wuqiong
+			</a>
+
+			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+			  <span aria-hidden="true"></span>
+			  <span aria-hidden="true"></span>
+			  <span aria-hidden="true"></span>
+			</a>
+		  </div>
+
+		  <div id="navbarBasicExample" class="navbar-menu">
+			<div class="navbar-start">
+			  <a class="navbar-item">
+				Home
+			  </a>
+
+			  <a class="navbar-item">
+				Jobs
+			  </a>
+
+			  <div class="navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link">
+				  More
+				</a>
+
+				<div class="navbar-dropdown">
+				  <a class="navbar-item">
+					My Profile
+				  </a>
+				  <a class="navbar-item">
+					Settings
+				  </a>
+				  <a class="navbar-item">
+					Favorites
+				  </a>
+				  <hr class="navbar-divider">
+				  <a class="navbar-item">
+					Report an issue
+				  </a>
+				</div>
+			  </div>
+			</div>
+
+			<div class="navbar-end">
+			  <div class="navbar-item">
+				<div class="buttons">
+				  <a class="button is-primary">
+					<strong>Sign up</strong>
+				  </a>
+				  <a class="button is-light">
+					Log in
+				  </a>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</nav>
+		`
+	})
+	Vue.component('wu-header', {
+		template: `
+		<header class="hero">
+			<section class="hero-body">
+				<div class="container">
+					<h1 class="title is-1">Wuqiong</h1>
+					<h2 class="subtitle">Endless Job Stream</h2>
+				</div>
+			</section>
+		</header>
+		`
+	})
+	let vm = new Vue({
+		el: ".jobs",
+		data: {},
+		methods: {},
+		mounted() {
+			console.log('get mounted')
+		}
+	})
+</script>
