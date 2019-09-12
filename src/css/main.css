@@ -1,7 +1,7 @@
 .copy p {
 	font-size: 1.18em;
 }
-.input {
+.input, .select select {
 	box-shadow: none;
 	border-radius: 0;
 }
