@@ -1,0 +1,27 @@
+.copy p {
+	font-size: 1.18em;
+}
+.input {
+	box-shadow: none;
+	border-radius: 0;
+}
+.title, .label {
+	font-family: "Lato", sans-serif;
+}
+.login div:first-child {
+	font-size: 1.5em;
+	font-family: "Lato", sans-serif;
+	padding-bottom: .6em;
+}
+.columns .column:first-child p {
+	padding-right: 3em;
+}
+ul.benefits {
+	list-style: none;
+}
+.benefits {
+	font-size: 1.6em;
+}
+.benefits i:last-child {
+	padding-right: .35em;
+}

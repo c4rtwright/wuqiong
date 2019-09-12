@@ -1,25 +1,14 @@
 <html>
 	<head>
 		<title>Wuqiong</title>
-		<link rel="stylesheet" href="src/css/bulma.min.css">
+		<link href="src/css/bulma/bulma.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-		<style>
-			.input {
-				box-shadow: none;
-				border-radius: 0;
-			}
-			.title, .label {
-				font-family: "Lato", sans-serif;
-			}
-			.login div:first-child {
-				font-size: 1.5em;
-				font-family: "Lato", sans-serif;
-				padding-bottom: .6em;
-			}
-		</style>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="src/css/main.css" rel="stylesheet">
 	</head>
 	<body>
-		<section style="border: 1px solid black;" class="section">
+		<section class="section">
 			<header class="hero">
 				<section class="hero-body">
 					<div class="container">
@@ -29,29 +18,51 @@
 				</section>
 			</header>
 			<section class="section">
-				<div class="columns">
-					<div class="column content">
-						<p>Wuqiong is the premier place to simulate the endless horror of the job search!</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper congue metus at imperdiet. Fusce aliquam laoreet libero, eu eleifend mi cursus vitae. Morbi interdum sed dui quis interdum.</p>
-					</div>
-					<div class="column">
-						<section class="login">
-							<div>
-								Already a member? Sign in here!
-							</div>
-							<div class="field">
-								<label class="label is-medium">Username</label>
-								<div class="control">
-									<input class="input is-medium" type="text" placeholder="username">
-								</div>    
-							</div>
-							<div class="field">
-								<label class="label is-medium" for="password">Password</label>
-								<div class="control">
-									<input class="input is-medium" type="password">
+				<div class="container">
+					<div class="columns">
+						<div class="column is-three-fifths content copy">
+							<p>Wuqiong is the premier place to simulate the endless horror of the job search!</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper congue metus at imperdiet. Fusce aliquam laoreet libero, eu eleifend mi cursus vitae. Morbi interdum sed dui quis interdum.</p>
+							<ul class='benefits'>
+								<li>
+									<i class="fas fa-search"></i>
+									<i class="fas fa-map-marker-alt"></i>
+									Zero-in your search with filters
+								</li>
+								<li>
+									<i class="fas fa-bookmark"></i>
+									<i class="fas fa-heart"></i>
+									Save that dream gig with favorites
+								</li>
+								<li>
+								<i class="fas fa-user-tie"></i>
+								<i class="fas fa-briefcase"></i>
+								Save your resume and let employers find *you*
+								</li>
+							</ul>
+						</div>
+						<div class="column">
+							<section class="login">
+								<div>
+									Already a member? Sign in here!
 								</div>
-							</div>
-						</section>
+								<div class="field">
+									<label class="label is-medium">Email</label>
+									<div class="control">
+										<input class="input is-medium" type="text" placeholder="me@example.com">
+									</div>    
+								</div>
+								<div class="field">
+									<label class="label is-medium" for="password">Password</label>
+									<div class="control">
+										<input class="input is-medium" type="password">
+									</div>
+								</div>
+								<div class="control">
+									<a class="button is-info">Search</a>
+								</div>
+							</section>
+						</div>
 					</div>
 				</div>
 			</section>
