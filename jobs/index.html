@@ -7,9 +7,35 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 		<link href="../src/css/main.css" rel="stylesheet">
 		<style>
+			.opt-stack dl {
+			    display: flex;
+				flex-direction: row;
+				flex-flow: row wrap;
+				justify-content: space-between;
+			}
+			.job-res .columns:first-child {
+				flex-flow: row wrap;
+			}
+			.thumbnail img {
+				margin: 0 auto;
+			}
+			a.report-listing {
+				color: #f20000;
+				vertical-align: sub;
+				margin: 0 0 0 .5em;
+			}
+			.section {
+				padding: 1rem 1.5rem;
+			}
+			body {
+				font-family: "Open Sans", sans-serif;
+			}
 			.search {
-				max-width: 69vw;
 				margin: 2em 2em 2em 2em;
+				padding: 1em 1em 1em 1em;
+			}
+			.results {			
+				margin: 2em 2em .5em 2em;
 				padding: 1em 1em 1em 1em;
 			}
 			.navbar-brand a.navbar-item:first-child {
@@ -21,7 +47,6 @@
 			}
 			.opt-stack dl > dt {
 				font-size: 1.5em;
-				text-align: center;
 			} 
 			.opt-stack dl > dd {
 				font-size: 1.2em;
@@ -30,35 +55,125 @@
 			.options-list {
 				display: grid;
 				border-top: 1px solid black;
-				grid-template-columns: repeat(3, 17em);
+				grid-template-columns: repeat(3, minmax(20vw, 1fr));
+				row-gap: 1em;
+				column-gap: .5em;
 				border-bottom: 1px solid black;
-				padding: 1em;
+				padding: 1em 0 1em 0;
 				margin: 1em 0 1em 0;
 			}
 			.search header {
 				display: flex;
-				justify-content: space-between;
+				flex-direction: column;
 			}
-			
-			.search header a {
-				font-size: 1.4em;
-				margin: .15em 0 0 0;
+			.search header a, .results header a {
+				font-size: 1.2em;
+				margin: -.75em 0 .55em 0;
 			}
 			.include .title, .exclude .title, .options-list .option .title.is-6 {
 				font-weight: normal;
 				margin: 1em 0 .5em 0;
 			}
 			.options-list > div {
-				border: 1px solid purple; 
+				border-right: 1px solid purple; 
 				padding: 1em;
 			}
-			.options-list .option .title.is-4 {
-				margin: 0.2em 0px 0.5em; 
-				font-weight: normal;
-				text-align: center;
+			.options-list > div:last-child {
+				border: none;
 			}
-			.field.location {
-				width: 83%;
+			.options-list .option .title.is-4 {
+				margin: 0.2em 0px 0.5em;
+				font-weight: normal;
+				border-bottom: 1px solid black;
+				padding-bottom: 9px;
+			}
+			a.close:hover {
+				color: #f20000;
+				opacity: .8;
+			}
+			.close {
+				font-size: 1.5em;
+				color: #f20000;
+				grid-column-start: 1;
+				grid-column-end: 4;
+			}
+			.job-res {
+				border: 1px solid black;
+				padding: 1em 1em 1em 1em;
+				margin: 1em 1em .5em 1em;
+			}
+			.thumb {
+				border: 1px solid red;
+				padding: 5px;
+				display: inline-block;
+			}
+			.company-info {
+				border: 1px solid green;
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 0 0 1em
+			}
+			.company-info p:first-child {
+				font-size: 1.3em;
+				font-family: "Lato", sans-serif;
+				margin: 0 0 11px 0;
+			}
+			.company-info p {
+				font-family: "Open Sans", sans-serif;
+				font-size: 1.15em;
+			}
+			.level.job-benefits {
+				border: 1px solid blue;
+				margin: 1.5em 0 0 0;
+			}
+
+			.level.job-benefits .heading {
+				font-size: 1em;
+				text-transform: capitalize;
+			}
+			.level.job-benefits .title {
+				font-size: 1em;
+				font-weight: normal;
+			}
+			.listing-info p {
+				font-size: 1.34em;
+			}
+			.listing-info .job-title {
+				font-weight: bold;
+			}
+			.listing-details > ul {
+				font-size: 1.35em;
+			}
+			.listing-info p,
+			.listing-details .fa-ul > li {
+				padding: .35em 0 0 0;
+			}
+			.listing-details .fa-ul .fa-li {
+				top: 10px;
+				font-size: 1.25em;
+			}
+			.search-form .search-button {
+				margin: .5em 0 0 0;
+			}
+			.heading.wage {}
+			@media (max-width: 750px) {
+				.listing-details ul { 
+					display: flex; 
+					flex-flow: row wrap; 
+					justify-content: space-between; 
+				}
+				.options-list {
+					grid-template-columns: none;
+				}
+				.opt-stack dl > dd {
+					margin: .5em .24em 1em 0;
+				}
+				.options-list > div {
+					border-right: none;
+				}
+				.options-list > div:not(:first-child) {
+					padding: 0 1em .5em 1em;
+				}
 			}
 		</style>
 	</head>
@@ -68,40 +183,39 @@
 				<user-nav></user-nav>
 			</header>
 			<div class="container">			
-				<div class="search">
+				<section class="search">
 					<header>
 						<h1 class="title" style="">Search Jobs</h1>
-						<a href="#" style="">Search Options</a>
+						<a v-on:click="toggleOptionsList()">Search Options</a>
 					</header>
-
 					<div class="search-form">
-						<div class="options-list">
+						<div class="field">
+							<div class="control has-icons-left">
+								<input type="text" v-on:keyup.13="performSearch()" v-model='selected_options.job_title' class="input job-title is-medium"> 
+								<p class="help">Enter a job title (e.g.: "Web Developer")</p> 
+								<span class="icon is-left"><i class="fas fa-search"></i></span>
+							</div>
+							<div class="field">
+								<div class="control">
+									<div v-on:click="performSearch()" class="run-search search-button button is-info">Search</div>
+								</div>
+							</div>
+						</div>
+						<div class="options-list" v-if="showOptions">
+							<!--
+							<a href="#" class="close" v-on:click="closeOptionsList()">
+								<i class="fas fa-times"></i>
+								Close
+							</a>
+							-->
 							<div class="option opt-stack">
+								<h4 class="title is-4">Stack Preference</h4>
 								<dl>
-									<dt>Stack Preference</dt>
-									<dd>
+									<dd v-for="opt_stack in search_options.opt_stack">
 										<label class="checkbox">
-											<input type="checkbox" checked="">
-											Front-End
-										</label>
-									</dd>
-									<dd>
-										<label class="checkbox">
-											<input type="checkbox">
-											Back-End
-										</label>
-									</dd>
-									<dd>
-										<label class="checkbox">
-											<input type="checkbox">
-											DevOps
-										</label>
-									</dd>
-									<dd>
-										<label class="checkbox">
-											<input type="checkbox">
-											Design
-										</label>
+											<input type="checkbox" v-model="selected_options.opt_stack" v-bind:value="opt_stack">
+											{{opt_stack}}
+										</label>									
 									</dd>
 								</dl>
 							</div>
@@ -131,11 +245,15 @@
 										<div class="select">
 											<select>
 												<option value='0'>Select a country</option>
-												<option value="us">United States</option>
-												<option value="uk">United Kingdom</option>
-												<option value="canada">Canada</option>
-												<option value="China">China</option>
-												<option value="india">India</option>
+												<option value="AS">American Samoa</option>
+												<option value="AD">Andorra</option>
+												<option value="AO">Angola</option>
+												<option value="AI">Anguilla</option>
+												<option value="AQ">Antarctica</option>
+												<option value="AG">Antigua and Barbuda</option>
+												<option value="AR">Argentina</option>
+												<option value="US">United States</option>
+												<option value="UK">United Kingdom</option>
 											</select>
 											<span class="icon is-left">
 												<i class="fas fa-globe"></i>
@@ -160,22 +278,48 @@
 							</div>
 						</div>
 					</div>
-					<div class="field">
-						<div class="control has-icons-left">
-							<input type="text" class="input is-medium"> 
-							<p class="help">Enter a job title (e.g.: "Web Developer")</p> 
-							<span class="icon is-left"><i class="fas fa-search"></i></span>
+				</section>
+				<section class="results" v-if="results.length > 0">
+					<header>
+						<h1 class="title">Results</h1>
+						<h3 class="subtitle">5 results found</h3>
+					</header>
+					<div class="job-res" v-for="(i, key) in results">
+						<div class="columns is-mobile">
+							<div class="column is-one-third thumbnail">
+								<img class="image" src="http://lorempixel.com/150/150/" alt="thumb">
+							</div>
+							<div class="column listing-info">
+								<p class="company-name">{{i.listing_info.company_name}}</p>
+								<p class="job-title">Front-End Developer</p>
+								<p class="job-location">San Francisco, California</p>
+							</div>
+							<div class="column listing-details">
+								<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fas fa-dollar-sign"></i></span>$50k - $60k / year</li>
+									<li><span class="fa-li"><i class="fas fa-calendar-day"></i></span>Posted last week</li>
+									<li><span class="fa-li"><i class="fas fa-clock"></i></span>Full-Time</li>
+									<li><span class="fa-li"><i class="fas fa-laptop-code"></i></span>Remote Possible</span>
+								</ul>
+								</div>
+							</div>
+							<div class="columns listing-actions">
+								<div class="column">
+									<div class="button is-info">Apply Now</div>
+									<a class="report-listing">Report This Listing</a>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 			</div>
 		</section>
 	</body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
 <script>
-	let jd = faker.name.jobDescriptor();
-	console.log(jd)
+	let company = faker.company.companyName();
+	console.log(company)
 </script>
 <script src="../src/js/vue/vue.min.js"></script>
 <script>
@@ -188,7 +332,7 @@
 			  Wuqiong
 			</a>
 
-			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav">
+			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav" v-on:click.native="toggleMenuMobile()">
 			  <span aria-hidden="true"></span>
 			  <span aria-hidden="true"></span>
 			  <span aria-hidden="true"></span>
@@ -197,9 +341,6 @@
 
 		  <div id="wu-nav" class="navbar-menu">
 		      <div class="navbar-start">
-			  <a class="navbar-item">
-				Home
-			  </a>
 			  <a class="navbar-item">
 				Jobs
 			  </a>
@@ -225,6 +366,7 @@
 			  </div>
 			</div>
 
+			<!--
 			<div class="navbar-end">
 			  <div class="navbar-item">
 				<div class="buttons">
@@ -237,35 +379,90 @@
 				</div>
 			  </div>
 			</div>
+			-->
 		  </div>
 		</nav>
-		`
-	})
-	Vue.component('wu-header', {
-		template: `
-		<header class="hero">
-			<section class="hero-body">
-				<div class="container">
-					<h1 class="title is-1">Wuqiong</h1>
-					<h2 class="subtitle">Endless Job Stream</h2>
-				</div>
-			</section>
-		</header>
 		`
 	})
 	let vm = new Vue({
 		el: ".jobs",
 		data: {
+			showOptions: false,
 			search_options: {
-				keywords: {},
-				opt_stack: {},
-				opt_pref: {},
-				opt_exclude: {}
+				opt_stack: [
+					'Front-End',
+					'Back-End',
+					'DevOps',
+					'Design'
+				],
+			},
+			selected_options: {
+				job_title: undefined,
+				opt_stack: [],
+				keywords: [],
+				prefs: {
+					include: [],
+					exclude: []
+				}
+			},
+			results: []
+		},
+		methods: {
+			getRandomArbitrary(min, max) {
+				return Math.random() * (max - min) + min;
+			},
+			toggleMenuMobile(event, target) {
+				console.log(
+					event.target.tagName
+				)
+			},
+			toggleOptionsList() {
+				if (vm.showOptions == true) {
+					vm.showOptions = false;
+				} else if (vm.showOptions == false) {
+					vm.showOptions = true;
+				}
+			},
+			closeOptionsList() {
+				vm.showOptions = false;
+			},
+			performSearch() {
+				/**
+				Simulating 5 result hits (regardless of selected options)
+				@TODO: query db of listings, matching criteria based on selected options
+				**/
+				let resultRange = 5;
+				let listingDate = new Date();
+				
+				for (i = 0; i <= resultRange; i++) {
+					let resultObj = {
+						listing_info: {
+							company_name: faker.company.companyName(),
+							job_title: 'Front-End Web Developer',
+							company_location: 'San Francisco, CA' // Location formating up for debate
+						},
+						listing_details: {
+							salary_range: "$50k - $60k",
+							date_posted: listingDate.getUTCDate(),
+							schedule_type: 'Full-Time',
+							remote_possible: true
+						}
+					}
+					vm.results.push(resultObj);
+				}
+				console.log('running search')
+				vm.results.forEach((element) => {
+					console.log(element.listing_info.company_name)
+				})
 			}
 		},
-		methods: {},
 		mounted() {
 			console.log('get mounted')
 		}
-	})
-</script>
+	});
+	
+	document.querySelector('.navbar-burger').addEventListener('click', function(){
+		document.querySelector('.navbar-menu').classList.toggle('is-active')
+		this.classList.toggle("is-active") 
+    });
+	</script>
