@@ -1,0 +1,178 @@
+.add-timeline {
+    display: flex;
+    flex-flow: wrap;
+    margin: 2em 0 2em 0;
+}
+
+.add-timeline > * {
+    margin: 0 1em 0 0;
+}
+.current-position {
+    margin: .8em 0 0 0;
+}
+.prof-img img {
+	border-radius: 9px;
+}
+.email-opts > label.checkbox > input[type=checkbox] {
+	margin: 0 .8em 0 0;
+}
+.email-opts > label.checkbox {
+    margin: .5em;
+}
+.email-opts {
+	display: flex;
+	flex-direction: column;
+}
+.digests {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+.current-thumb {
+	margin: 0 1em 0 0;
+}
+.change-thumb {
+	margin: .4em 1.5em 0 1em;
+}
+.edit-profile-form,
+.notifications-form,
+.settings-form {
+	margin: .5em 0 0 0;
+	padding: 1em;
+	background: #ffffff;
+    border: 1px solid #dcdcdc;
+}
+.settings-header {
+	border: 1px solid #dcdcdc;
+	background-color: #ffffff;
+	padding: .4em;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.settings-header p {
+	font-size: 1.25em;
+}
+
+ul.setting-options > li {
+	padding: .75em;
+	margin: .35em 0 0 0;
+	border: 1px solid #dcdcdc;
+	border-radius: 11px;
+	cursor: pointer;
+	text-transform: capitalize;
+}
+ul.setting-options > li:hover {
+	background-color: #e6e6e6;
+}
+section.settings {
+	padding: 0;
+}
+.settings-container > header > h3 {
+	margin: .15em 0 .5em 0;
+}
+.settings-menu .columns:first-child {
+	flex-flow: row wrap;
+}
+.thumbnail img {
+	margin: 0 auto;
+}
+a.remove-favorite {
+	color: #f20000;
+	vertical-align: sub;
+	margin: 0 0 0 .5em;
+}
+.section {
+	padding: 1rem 1.5rem;
+}
+body {
+	font-family: "Open Sans", sans-serif;
+}
+.search {
+	margin: 2em 2em 2em 2em;
+	padding: 1em 1em 1em 1em;
+}
+.settings-container {			
+	margin: 2em 2em .5em 2em;
+	padding: 1em 1em 1em 1em;
+}
+.navbar-brand a.navbar-item:first-child {
+	font-size: 2em;
+	font-family: "Lato", sans-serif;
+}
+.settings-menu {
+	padding: 1em 1em 1em 1em;
+	margin: 1em 1em .5em 1em;
+}
+.thumb {
+	border: 1px solid red;
+	padding: 5px;
+	display: inline-block;
+}
+.company-info {
+	border: 1px solid green;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 1em
+}
+.company-info p:first-child {
+	font-size: 1.3em;
+	font-family: "Lato", sans-serif;
+	margin: 0 0 11px 0;
+}
+.company-info p {
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.15em;
+}
+.level.job-benefits {
+	border: 1px solid blue;
+	margin: 1.5em 0 0 0;
+}
+
+.level.job-benefits .heading {
+	font-size: 1em;
+	text-transform: capitalize;
+}
+.level.job-benefits .title {
+	font-size: 1em;
+	font-weight: normal;
+}
+.listing-info ul > li > p {
+	font-size: 1.34em;
+}
+.listing-info .job-title {
+	font-weight: bold;
+}
+.listing-details > ul {
+	font-size: 1.35em;
+}
+.listing-info p,
+.listing-details .fa-ul > li {
+	padding: .35em 0 0 0;
+}
+.listing-details .fa-ul .fa-li {
+	top: 10px;
+	font-size: 1.25em;
+}
+.filter-favorites .search-button {
+	margin: .5em 0 0 0;
+}
+.heading.wage {}
+@media (max-width: 750px) {
+	.listing-details ul { 
+		display: flex; 
+		flex-flow: row wrap; 
+		justify-content: space-between; 
+	}
+	.options-list {
+		grid-template-columns: none;
+	}
+	.opt-stack dl > dd {
+		margin: .5em .24em 1em 0;
+	}
+	.options-list > div {
+		border-right: none;
+	}
+	.options-list > div:not(:first-child) {
+		padding: 0 1em .5em 1em;
+	}
+}

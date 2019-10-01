@@ -1,0 +1,296 @@
+<html>
+	<head>
+		<title>Wuqiong -- Settings</title>
+		<link href="../src/css/bulma/bulma.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="../src/css/main.css" rel="stylesheet">
+		<link href="../src/css/settings/settings.css" rel='stylesheet'>
+	</head>
+	<body>
+		<section class="section settings">
+			<header class='user-nav'>
+				<nav class="navbar" role="navigation" aria-label="main navigation">
+					<div class="navbar-brand">
+						<a class="navbar-item" href="../index.html">
+							<img src="../logo.png">Wuqiong
+						</a>
+						<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav" v-on:click.native="toggleMenuMobile()">
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+						</a>
+					</div>
+					<div id="wu-nav" class="navbar-menu">
+						<div class="navbar-start">
+							<a class="navbar-item" href="../jobs/index.html">Jobs</a>
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a class="navbar-link">More</a>
+										<div class="navbar-dropdown">
+											<a href="../profile/index.html" class="navbar-item">My Profile</a>
+											<a href="../settings/index.html" class="navbar-item">Settings</a>
+											<a href="../favorites/index.html" class="navbar-item">Favorites</a>
+											<hr class="navbar-divider">
+											<a class="navbar-item">Report an issue</a>
+										</div>
+									</a>
+								</div>
+							</a>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<div class="container">	
+				<section class="settings-container">
+					<header class='section-header'>
+						<h1 class="title">Settings</h1>
+					</header>
+					<div class="settings-menu">
+						<div class="columns">
+							<div class="column left is-one-third">
+								<ul class="setting-options" v-for="opt in settingsOptions">
+									<li class="opt" v-on:click="changeSettingMenu(opt)">{{opt}}</li>
+								</ul>
+							</div>
+							<div class="column main">
+								<header class="settings-header">
+									<p class="current-setting">{{currentMenu}}</p>
+								</header>
+								
+								<!-- Edit Profile -->
+								<div v-if="currentMenu == 'edit profile'" class="edit-profile-form">
+									<div class="field summary">
+										<div class="control">
+											<h4 class="title is-4">Summary</h4>
+											<textarea class="textarea"></textarea>
+										</div>
+									</div>
+									<div class="field experience">
+										<h4 class="title is-4">Experience</h4>
+										<div class="control add-company">
+											<label class="label">
+												Add Company
+											</label>
+											<input class="input" type="text">
+										</div>
+										<div class="control add-timeline">
+											<label class="label">
+												Timeline
+											</label>
+											<input class="exp-to-date" type="date">
+											<input class="exp-from-date" type="date">
+											<label class="checkbox current-position">
+												I currently work here
+												<input type="checkbox">
+											</label>
+										</div>
+										<div class="control add-exp-summary">
+											<label class="label">
+												Summarize Experience
+											</label>
+											<textarea class="textarea"></textarea>
+										</div>
+									</div>
+									<div class="field education">
+										<h4 class="title is-4">Education</h4>
+										<div class="control add-school">
+											<label class="label">
+												Add School</label>
+											<input class="input" type="text">
+										</div>
+										<div class="control add-degree">
+											<label class="label">
+												Type of Degree
+											</label>
+											<input class="input" type="text">
+										</div>
+										<div class="control add-timeline">
+											<label class="label">
+												Timeline
+											</label>
+											<input class="exp-to-date" type="date">
+											<input class="exp-from-date" type="date">
+											<label class="checkbox current-position">
+												I currently work here
+												<input type="checkbox">
+											</label>
+										</div>
+										<div class="control add-exp-summary">
+											<label class="label">
+												Summarize Experience
+											</label>
+											<textarea class="textarea"></textarea>
+										</div>
+									</div>
+									<div class="field">
+										<div class="control">
+											<div v-on:click="saveProfileChanges(event)" class="save-changes button is-info is-fullwidth">
+												Save Changes
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<!-- Notifications-->
+								<div class="notifications-form" v-if="currentMenu == 'notifications'">
+									<div class="columns is-multiline">
+										<div class="column">
+											<div class="field">
+												<div class="control">
+													<label class="label">
+														Current Email:
+														<i class='current-email'>you@example.com</i>
+													</label>
+													<p class="help">This is your current email on file</p>
+												</div>
+											</div>
+										</div>
+										<div class="column is-half">
+											<div class="field">
+												<div class="control">
+													<label class="label">
+														Receive emails from
+													</label>
+													<div class="select">
+														<select>
+															<option>Everyone</option>
+															<option>Connections Only</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="columns">
+										<div class="column">
+											<div class="field">
+												<div class="control">
+													<label class="label">
+														Digest Settings:
+													</label>
+													<div class="digests">
+														<div class="wu-digest">
+															<label>Wuqiong Digest</label>
+														</div>
+														<div class="select">
+															<select>
+																<option>Daily</option> 
+																<option>Weekly</option>
+															</select>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="columns">
+										<div class="column">
+											<div class="field">
+												<div class="control">
+													<label class="label">
+														Job Emails
+													</label>
+												</div>
+												<div class="email-opts">
+													<label class="checkbox">
+														<input type="checkbox">Company Match
+													</label>
+													<label class="checkbox">
+														<input type="checkbox">Application Updates
+													</label>
+													<label class="checkbox">
+														<input type="checkbox">Application Rejection
+													</label>
+													<label class="checkbox">
+														<input type="checkbox">Profile Views
+													</label>
+												</div>
+											</div>
+											<div class="field">
+												<div class="control">
+													<div v-on:click="saveProfileChanges(event)" class="save-changes button is-info is-fullwidth">
+														Save Changes
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- General -->
+								<div class="settings-form" v-if="currentMenu == 'general'">
+									<div class="columns is-multiline">
+										<div class="column is-half">
+											<div class="field">
+												<div class="control">
+													<label class="label">Display Name</label>
+													<input class="input" type="text">
+												</div>
+												<p class="help">This is how folks will find your profile</p>
+											</div>
+										</div>
+										<div class="column is-half">
+											<div class="field">
+												<div class="control">
+													<label class="label">Name</label>
+													<input class="input" type="text">
+												</div>
+												<p class="help">First name and last name</p>
+											</div>
+										</div>
+									</div>
+									<div class="columns is-multiline">
+										<div class="column is-half">
+											<div class="field">
+												<div class="control">
+													<label class="label">Email</label>
+													<input class="input" type="text" placeholder="you@email.com">
+												</div>
+												<p class="help">Update your current email on file</p>
+											</div>
+										</div>
+										<div class="column is-half">
+											<div class="field">
+												<div class="control">
+													<label class="label">
+														Profile Image
+													</label>
+													<div class="file">
+														<label class="file-label">
+															<img class="current-thumb" src="https://lorempixel.com/50/50" alt="thumb">
+															<input class="file-input" type="file" name="resume">
+															<span class="file-cta">
+																<span class="file-icon">
+																	<i class="fas fa-upload"></i>
+																</span>
+																<span class="file-label">
+																	Upload
+																</span>
+															</span>
+														</label>
+													</div>
+													<p class="help">Scaled to 50x50 (1MB max size)</p>
+												</div>
+											</div>
+										</div>
+										<div class="column">
+											<div class="field">
+												<div class="control">
+													<div v-on:click="saveProfileChanges(event)" class="save-changes button is-info is-fullwidth">
+														Save Changes
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>    
+				</section>
+			</div>
+		</section>
+	</body>
+</html>
+<script src="../src/js/vue/vue.min.js"></script>
+<script src="../src/js/settings/settings.js"></script>

@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<title>Wuqiong -- Profile</title>
+		<link href="../src/css/bulma/bulma.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="../src/css/main.css" rel="stylesheet">
+		<link href="../src/css/profile/profile.css" rel="stylesheet">
+	</head>
+	<body>
+		<section class="section jobs">
+			<header class="user-nav">
+				<user-nav></user-nav>
+			</header>
+			<div class="container">			
+				<section class="profile">
+					<div class="prof-container">
+						<div class="prof-info">
+							<div class="prof-thumb">
+								<img src="http://lorempixel.com/200/200" alt="usr-img">
+							</div>
+							<div class="prof-intro">
+								<h3 class="prof-name title is-3">Yours Truly</h3>
+								<h4 class="prof-title subtitle">Front-End Developer</h4>
+								<div class="prof-location">
+									<i class="fas fa-globe"></i>
+									<span class="location">Stockton, California</span>
+								</div>
+								<div class="prof-career">
+									<div class="prof-edu">
+										<i class="fas fa-school"></i> Heald College
+									</div>
+									<div class="prof-company">
+										<i class="fas fa-briefcase"></i> SplashDown LLC.</div>
+									</div>								
+								</div>
+								<div class="prof-action">
+									<div class="button is-info">
+										Message
+									</div>
+									<div class="more-container">
+										<div v-on:click="toggleMoreMenu" class="button more">
+											More
+											<i class="fas fa-list"></i>
+										</div>
+										<div v-if="moreMenu" class="more-menu">
+											<ul>
+												<li>
+													<i class="fas fa-file-pdf"></i>
+													Download Resume On Files
+												</li>
+												<li>
+													<i class="fas fa-user-plus"></i>
+													Add To Connections
+												<li>
+												<li>
+													<i class="fas fa-exclamation-triangle"></i>
+													<a class="report-profile">Report Profile</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div v-if="viewingSelf" class="button edit">
+										Edit
+										<i class="fas fa-pencil-alt edit-profile"></i>
+									</div>
+								</div>
+							</div>
+							<div class="prof-summary">
+								<header>
+									<h3 class="title is-3">Summary</h3>
+								</header>
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dignissim turpis et egestas tempor. Pellentesque pulvinar elit quis arcu iaculis eleifend. Integer id ex id purus mattis interdum et ut massa. Sed quis tincidunt urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eros ante, molestie quis tempor et, laoreet quis sapien. 
+								</p>
+							</div>
+							<div class="prof-experience">
+								<header>
+									<h3 class="title is-3">Experience</h3>
+								</header>
+								<div class="exp">
+									<div class="corp-thumb">
+										<img src="http://lorempixel.com/50/50" alt="corp-thumb">
+									</div>
+									<div class="exp-info">
+										<p class="exp-company">SplashDown LLC</p>
+										<p class="exp-title">Front-End Web Developer</p>
+										<span class="exp-date">June 2012 - Jan 2019</span>
+									</div>
+									<div class="exp-summary">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dignissim turpis et egestas tempor. Pellentesque pulvinar elit quis arcu iaculis eleifend. Integer id ex id purus mattis interdum et ut massa. Sed quis tincidunt urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eros ante, molestie quis tempor et, laoreet quis sapien.
+									</div>
+								</div>
+							</div>
+							<div class="prof-education">
+								<header>
+									<h3 class="title is-3">Education</h3>
+								</header>
+								<div class="edu">
+									<div class="edu-thumb">
+										<img src="http://lorempixel.com/50/50" alt="edu-thumb">
+									</div>
+									<div class="edu-info" style="margin: -.5em 0 0 1em;">
+										<p class="edu-school">Heald College</p>
+										<p class="edu-degree">A.A.S, Network Administration</p>
+										<span class="edu-grad-date">Oct 2009 - Oct 2011</span>
+									</div>
+									<div class="edu-summary">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dignissim turpis et egestas tempor. Pellentesque pulvinar elit quis arcu iaculis eleifend. Integer id ex id purus mattis interdum et ut massa. Sed quis tincidunt urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eros ante, molestie quis tempor et, laoreet quis sapien.
+									</div>
+								</div>
+							</div>
+							<div class="prof-achievements">
+								<header>
+									<h3 class="title is-3">Achivements</h3>
+								</header>
+								<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dignissim turpis et egestas tempor. Pellentesque pulvinar elit quis arcu iaculis eleifend. Integer id ex id purus mattis interdum et ut massa. Sed quis tincidunt urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eros ante, molestie quis tempor et, laoreet quis sapien. 
+								</p>
+							</div>							
+						</div>
+					</div>
+				</section>
+			</div>
+		</section>
+	</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+<script>
+	let company = faker.company.companyName();
+	console.log(company)
+</script>
+<script src="../src/js/vue/vue.min.js"></script>
+<script src="../src/js/profile/index.js"></script>

@@ -1,0 +1,397 @@
+<html>
+	<head>
+		<title>Wuqiong -- Favorites</title>
+		<link href="../src/css/bulma/bulma.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+		<link href="../src/css/main.css" rel="stylesheet">
+		<style>
+			section.favorites {
+				padding: 0;
+			}
+			.results > header > h3 {
+				margin: .15em 0 .5em 0;
+			}
+			.listing-actions {
+				margin: -2em auto -1em auto;
+			}
+			.opt-stack dl {
+			    display: flex;
+				flex-direction: row;
+				flex-flow: row wrap;
+				justify-content: space-between;
+			}
+			.job-res .columns:first-child {
+				flex-flow: row wrap;
+			}
+			.thumbnail img {
+				margin: 0 auto;
+			}
+			a.remove-favorite {
+				color: #f20000;
+				vertical-align: sub;
+				margin: 0 0 0 .5em;
+			}
+			.section {
+				padding: 1rem 1.5rem;
+			}
+			body {
+				font-family: "Open Sans", sans-serif;
+			}
+			.search {
+				margin: 2em 2em 2em 2em;
+				padding: 1em 1em 1em 1em;
+			}
+			.results {			
+				margin: 2em 2em .5em 2em;
+				padding: 1em 1em 1em 1em;
+			}
+			.navbar-brand a.navbar-item:first-child {
+				font-size: 2em;
+				font-family: "Lato", sans-serif;
+			}
+			.opt-stack {
+				padding: .5em;
+			}
+			.opt-stack dl > dt {
+				font-size: 1.5em;
+			} 
+			.opt-stack dl > dd {
+				font-size: 1.2em;
+				margin: .5em 0 1em 0;
+			}
+			.options-list {
+				display: grid;
+				border-top: 1px solid black;
+				grid-template-columns: repeat(3, minmax(20vw, 1fr));
+				row-gap: 1em;
+				column-gap: .5em;
+				border-bottom: 1px solid black;
+				padding: 1em 0 1em 0;
+				margin: 1em 0 1em 0;
+			}
+			.search header {
+				display: flex;
+				flex-direction: column;
+			}
+			.search header a, .results header a {
+				font-size: 1.2em;
+				margin: -.75em 0 .55em 0;
+			}
+			.include .title, .exclude .title, .options-list .option .title.is-6 {
+				font-weight: normal;
+				margin: 1em 0 .5em 0;
+			}
+			.options-list > div {
+				border-right: 1px solid purple; 
+				padding: 1em;
+			}
+			.options-list > div:last-child {
+				border: none;
+			}
+			.options-list .option .title.is-4 {
+				margin: 0.2em 0px 0.5em;
+				font-weight: normal;
+				border-bottom: 1px solid black;
+				padding-bottom: 9px;
+			}
+			a.close:hover {
+				color: #f20000;
+				opacity: .8;
+			}
+			.close {
+				font-size: 1.5em;
+				color: #f20000;
+				grid-column-start: 1;
+				grid-column-end: 4;
+			}
+			.job-res {
+				padding: 1em 1em 1em 1em;
+				margin: 1em 1em .5em 1em;
+			}
+			.thumb {
+				border: 1px solid red;
+				padding: 5px;
+				display: inline-block;
+			}
+			.company-info {
+				border: 1px solid green;
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 0 0 1em
+			}
+			.company-info p:first-child {
+				font-size: 1.3em;
+				font-family: "Lato", sans-serif;
+				margin: 0 0 11px 0;
+			}
+			.company-info p {
+				font-family: "Open Sans", sans-serif;
+				font-size: 1.15em;
+			}
+			.level.job-benefits {
+				border: 1px solid blue;
+				margin: 1.5em 0 0 0;
+			}
+
+			.level.job-benefits .heading {
+				font-size: 1em;
+				text-transform: capitalize;
+			}
+			.level.job-benefits .title {
+				font-size: 1em;
+				font-weight: normal;
+			}
+			.listing-info ul > li > p {
+				font-size: 1.34em;
+			}
+			.listing-info .job-title {
+				font-weight: bold;
+			}
+			.listing-details > ul {
+				font-size: 1.35em;
+			}
+			.listing-info p,
+			.listing-details .fa-ul > li {
+				padding: .35em 0 0 0;
+			}
+			.listing-details .fa-ul .fa-li {
+				top: 10px;
+				font-size: 1.25em;
+			}
+			.filter-favorites .search-button {
+				margin: .5em 0 0 0;
+			}
+			.heading.wage {}
+			@media (max-width: 750px) {
+				.listing-details ul { 
+					display: flex; 
+					flex-flow: row wrap; 
+					justify-content: space-between; 
+				}
+				.options-list {
+					grid-template-columns: none;
+				}
+				.opt-stack dl > dd {
+					margin: .5em .24em 1em 0;
+				}
+				.options-list > div {
+					border-right: none;
+				}
+				.options-list > div:not(:first-child) {
+					padding: 0 1em .5em 1em;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<section class="section favorites">
+			<header class='user-nav'>
+				<user-nav></user-nav>
+			</header>
+			<div class="container">			
+				<section class="results" v-if="results.length > 0">
+					<header class='section-header'>
+						<h1 class="title">My Favorites</h1>
+					</header>
+					<div class="job-res" v-for="(i, key) in results">
+						<div class="columns is-mobile">
+							<div class="column is-one-third thumbnail">
+								<img class="image" src="http://lorempixel.com/150/150/" alt="thumb">
+							</div>
+							<div class="column listing-info">
+								<ul>
+									<li><p class="company-name">{{i.listing_info.company_name}}</p></li>
+									<li><p class="job-title">Front-End Developer</p></li>
+									<li><p class="job-location">San Francisco, California</p></li>
+								</ul>
+							</div>
+							<div class="column listing-details">
+								<ul class="fa-ul">
+									<li><span class="fa-li"><i class="fas fa-dollar-sign"></i></span>$50k - $60k / year</li>
+									<li><span class="fa-li"><i class="fas fa-calendar-day"></i></span>Posted last week</li>
+									<li><span class="fa-li"><i class="fas fa-clock"></i></span>Full-Time</li>
+									<li><span class="fa-li"><i class="fas fa-laptop-code"></i></span>Remote Possible</span>
+								</ul>
+								</div>
+							</div>
+							<div class="columns listing-actions is-centered">
+								<div class="column is-one-quarter">
+									<a class="remove-favorite">Remove From Favorites</a>
+								</div>
+							</div>
+							<div class="divider">
+								<div class="left" style="display: flex;flex-direction: column;justify-content: inherit;">
+									<hr>
+									<hr>
+								</div>
+								<div class="center" style="align-self: center;margin: 0 1em 0 1em;">
+									<i class="fas fa-chevron-down" style=""></i>
+								</div>
+								<div class="right" style="display: flex;flex-direction: column;justify-content: inherit;">
+									<hr>
+									<hr>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</section>
+	</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
+<script>
+	let company = faker.company.companyName();
+	console.log(company)
+</script>
+<script src="../src/js/vue/vue.min.js"></script>
+<script>
+	Vue.component('user-nav', {
+		template: `
+		<nav class="navbar" role="navigation" aria-label="main navigation">
+		  <div class="navbar-brand">
+			<a class="navbar-item" href="../index.html">
+			  <img src="../logo.png">
+			  Wuqiong
+			</a>
+
+			<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav" v-on:click.native="toggleMenuMobile()">
+			  <span aria-hidden="true"></span>
+			  <span aria-hidden="true"></span>
+			  <span aria-hidden="true"></span>
+			</a>
+		  </div>
+
+		  <div id="wu-nav" class="navbar-menu">
+		      <div class="navbar-start">
+			  <a class="navbar-item" href="../jobs/index.html">
+				Jobs
+			  </a>
+			  <div class="navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link">
+				  More
+				</a>
+				<div class="navbar-dropdown">
+				  <a class="navbar-item">
+					My Profile
+				  </a>
+				  <a class="navbar-item">
+					Settings
+				  </a>
+				  <a class="navbar-item">
+					Favorites
+				  </a>
+				  <hr class="navbar-divider">
+				  <a class="navbar-item">
+					Report an issue
+				  </a>
+				</div>
+			  </div>
+			</div>
+
+			<!--
+			<div class="navbar-end">
+			  <div class="navbar-item">
+				<div class="buttons">
+				  <a class="button is-primary">
+					<strong>Sign up</strong>
+				  </a>
+				  <a class="button is-light">
+					Log in
+				  </a>
+				</div>
+			  </div>
+			</div>
+			-->
+		  </div>
+		</nav>
+		`
+	})
+	let vm = new Vue({
+		el: ".favorites",
+		data: {
+			showOptions: false,
+			search_options: {
+				opt_stack: [
+					'Front-End',
+					'Back-End',
+					'DevOps',
+					'Design'
+				],
+			},
+			selected_options: {
+				job_title: undefined,
+				opt_stack: [],
+				keywords: [],
+				prefs: {
+					include: [],
+					exclude: []
+				}
+			},
+			results: []
+		},
+		methods: {
+			getRandomArbitrary(min, max) {
+				return Math.random() * (max - min) + min;
+			},
+			toggleMenuMobile(event, target) {
+				console.log(
+					event.target.tagName
+				)
+			},
+			toggleOptionsList() {
+				if (vm.showOptions == true) {
+					vm.showOptions = false;
+				} else if (vm.showOptions == false) {
+					vm.showOptions = true;
+				}
+			},
+			closeOptionsList() {
+				vm.showOptions = false;
+			},
+			generateFavorites() {
+				/**
+				Simulating 5 favorites
+				@TODO: query db of favorites
+				**/
+				let resultRange = 5;
+				let listingDate = new Date();
+				
+				for (i = 0; i <= resultRange; i++) {
+					let resultObj = {
+						listing_info: {
+							company_name: faker.company.companyName(),
+							job_title: 'Front-End Web Developer',
+							company_location: 'San Francisco, CA' // Location formating up for debate
+						},
+						listing_details: {
+							salary_range: "$50k - $60k",
+							date_posted: listingDate.getUTCDate(),
+							schedule_type: 'Full-Time',
+							remote_possible: true
+						}
+					}
+					vm.results.push(resultObj);
+				}
+				console.log('running search')
+				vm.results.forEach((element) => {
+				console.log(element.listing_info.company_name)
+				})
+			}
+		},
+		mounted() {
+			console.log('get mounted')
+		},
+	});
+	
+	document.addEventListener('DOMContentLoaded', function(e){
+		vm.generateFavorites();
+	}) 
+	
+	document.querySelector('.navbar-burger').addEventListener('click', function(){
+		document.querySelector('.navbar-menu').classList.toggle('is-active')
+		this.classList.toggle("is-active") 
+    });
+	</script>
