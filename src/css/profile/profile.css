@@ -46,6 +46,7 @@
 }
 .prof-info {
 	display: flex;
+	flex-flow: row wrap;
 	border-bottom: 1px solid #dcdcdc;
 	padding-bottom: 1em;
 }
@@ -58,13 +59,16 @@
 }
 .prof-action {
 	display: flex;
-	margin: 0 0 0 auto;
+	margin: 0 auto auto auto;
 }
 .prof-thumb img {
 	border-radius: 9px;
 }
 .prof-thumb {
-	margin: 0 3em 0 3em;
+	margin: auto 3em 1em 3em;
+}
+.prof-intro {
+	margin: 0 auto 1em auto;
 }
 .prof-container {
 	margin: 1em 0 1em 0;
