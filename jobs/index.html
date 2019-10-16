@@ -9,38 +9,38 @@
 		<link href="../src/css/jobs/jobs.css" rel="stylesheet">
 	</head>
 	<body>
+		<header class='user-nav'>
+			<nav class="navbar" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="../index.html">
+						<img src="../logo.png">Wuqiong
+					</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav" v-on:click.native="toggleMenuMobile()">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="wu-nav" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="../jobs/index.html">Jobs</a>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a class="navbar-link">More</a>
+									<div class="navbar-dropdown">
+										<a href="../profile/index.html" class="navbar-item">My Profile</a>
+										<a href="../settings/index.html" class="navbar-item">Settings</a>
+										<a href="../favorites/index.html" class="navbar-item">Favorites</a>
+										<hr class="navbar-divider">
+										<a class="navbar-item">Report an issue</a>
+									</div>
+								</a>
+							</div>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
 		<section class="section jobs">
-			<header class='user-nav'>
-				<nav class="navbar" role="navigation" aria-label="main navigation">
-					<div class="navbar-brand">
-						<a class="navbar-item" href="../index.html">
-							<img src="../logo.png">Wuqiong
-						</a>
-						<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav" v-on:click.native="toggleMenuMobile()">
-							<span aria-hidden="true"></span>
-							<span aria-hidden="true"></span>
-							<span aria-hidden="true"></span>
-						</a>
-					</div>
-					<div id="wu-nav" class="navbar-menu">
-						<div class="navbar-start">
-							<a class="navbar-item" href="../jobs/index.html">Jobs</a>
-								<div class="navbar-item has-dropdown is-hoverable">
-									<a class="navbar-link">More</a>
-										<div class="navbar-dropdown">
-											<a href="../profile/index.html" class="navbar-item">My Profile</a>
-											<a href="../settings/index.html" class="navbar-item">Settings</a>
-											<a href="../favorites/index.html" class="navbar-item">Favorites</a>
-											<hr class="navbar-divider">
-											<a class="navbar-item">Report an issue</a>
-										</div>
-									</a>
-								</div>
-							</a>
-						</div>
-					</div>
-				</nav>
-			</header>
 			<div class="container">			
 				<section class="search">
 					<header>
@@ -185,9 +185,82 @@
 							Morbi eu libero tortor. Donec facilisis diam eu commodo convallis. Aliquam erat volutpat. Etiam aliquet orci eu turpis ultricies maximus. Nullam nec diam non augue vulputate fermentum. Nulla est tellus, aliquam sed augue in, blandit porttitor libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque cursus turpis nec sagittis faucibus. 
 						</div>
 					</div>
+					<nav class="job-pages pagination" role="navigation" aria-label="pagination">
+						<a class="pagination-previous">Previous</a>
+						<a class="pagination-next">Next page</a>
+						<ul class="pagination-list">
+							<li>
+								<a class="pagination-link is-current" aria-label="Goto page 1">1</a>
+							</li>
+							<li>
+								<span class="pagination-ellipsis">&hellip;</span>
+							</li>
+							<li>
+								<a class="pagination-link" aria-label="Goto page 45">45</a>
+							</li>
+							<li>
+								<a class="pagination-link" aria-label="Page 46" aria-current="page">46</a>
+							</li>
+							<li>
+								<a class="pagination-link" aria-label="Goto page 47">47</a>
+							</li>
+							<li>
+								<span class="pagination-ellipsis">&hellip;</span>
+							</li>
+							<li>
+								<a class="pagination-link" aria-label="Goto page 86">86</a>
+							</li>
+						</ul>
+					</nav>
 				</section>
 			</div>
 		</section>
+		<div class="footer">
+			<div class="columns footer-links">
+				<div class="column">
+					<h4 class="title is-4">Footer Head 1</h4>
+					<ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="#">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="title is-4">Footer Head 2</h3>
+					<ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="#">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="title is-4">Footer Head 3</h3>
+					<ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="#">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>

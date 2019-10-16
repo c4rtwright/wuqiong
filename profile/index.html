@@ -9,16 +9,44 @@
 		<link href="../src/css/profile/profile.css" rel="stylesheet">
 	</head>
 	<body>
+		<header class='user-nav'>
+			<nav class="navbar" role="navigation" aria-label="main navigation">
+				<div class="navbar-brand">
+					<a class="navbar-item" href="../index.html">
+						<img src="../logo.png">Wuqiong
+					</a>
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="wu-nav" v-on:click.native="toggleMenuMobile()">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+				</div>
+				<div id="wu-nav" class="navbar-menu">
+					<div class="navbar-start">
+						<a class="navbar-item" href="../jobs/index.html">Jobs</a>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a class="navbar-link">More</a>
+									<div class="navbar-dropdown">
+										<a href="../profile/index.html" class="navbar-item">My Profile</a>
+										<a href="../settings/index.html" class="navbar-item">Settings</a>
+										<a href="../favorites/index.html" class="navbar-item">Favorites</a>
+										<hr class="navbar-divider">
+										<a class="navbar-item">Report an issue</a>
+									</div>
+								</a>
+							</div>
+						</a>
+					</div>
+				</div>
+			</nav>
+		</header>
 		<section class="section jobs">
-			<header class="user-nav">
-				<user-nav></user-nav>
-			</header>
 			<div class="container">			
 				<section class="profile">
 					<div class="prof-container">
 						<div class="prof-info">
 							<div class="prof-thumb">
-								<img src="http://lorempixel.com/200/200" alt="usr-img">
+								<img src="../assets/profile/user-avatar.jpg" alt="usr-img">
 							</div>
 							<div class="prof-intro">
 								<h3 class="prof-name title is-3">Yours Truly</h3>
@@ -81,7 +109,7 @@
 								</header>
 								<div class="exp">
 									<div class="corp-thumb">
-										<img src="http://lorempixel.com/50/50" alt="corp-thumb">
+										<img src="../assets/profile/busi-avatar.jpg" alt="corp-thumb">
 									</div>
 									<div class="exp-info">
 										<p class="exp-company">SplashDown LLC</p>
@@ -99,7 +127,7 @@
 								</header>
 								<div class="edu">
 									<div class="edu-thumb">
-										<img src="http://lorempixel.com/50/50" alt="edu-thumb">
+										<img src="../assets/profile/edu-avatar.jpg" alt="edu-thumb">
 									</div>
 									<div class="edu-info" style="margin: -.5em 0 0 1em;">
 										<p class="edu-school">Heald College</p>
@@ -124,12 +152,54 @@
 				</section>
 			</div>
 		</section>
+		<div class="footer">
+			<div class="columns footer-links">
+				<div class="column">
+					<h4 class="title is-4">Footer Head 1</h4>
+					<ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="#">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="title is-4">Footer Head 2</h3>
+					<ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="#">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+				<div class="column">
+					<h3 class="title is-4">Footer Head 3</h3>
+					<ul>
+						<li>
+							<a href="#">About Us</a>
+						</li>
+						<li>
+							<a href="#">Privacy Policy</a>
+						</li>
+						<li>
+							<a href="#">Contact Us</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
-<script>
-	let company = faker.company.companyName();
-	console.log(company)
-</script>
 <script src="../src/js/vue/vue.min.js"></script>
 <script src="../src/js/profile/index.js"></script>

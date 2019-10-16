@@ -18,6 +18,7 @@
 }
 .edu-info,
 .exp-info {
+	align-self: center;
 	margin: -.5em 0 0 1em;
 }
 .edu-school,
@@ -112,37 +113,13 @@ body {
 }
 .profile {
 	background-color: #ffffff;
+	border: 1px solid #c8c8c8;
 	margin: 2em 2em 2em 2em;
-	padding: 1em 1em 1em 1em;
-}
-.results {			
-	background-color: #ffffff;
-	margin: 2em 2em .5em 2em;
 	padding: 1em 1em 1em 1em;
 }
 .navbar-brand a.navbar-item:first-child {
 	font-size: 2em;
 	font-family: "Lato", sans-serif;
-}
-.opt-stack {
-	padding: .5em;
-}
-.opt-stack dl > dt {
-	font-size: 1.5em;
-} 
-.opt-stack dl > dd {
-	font-size: 1.2em;
-	margin: .5em 0 1em 0;
-}
-.options-list {
-	display: grid;
-	border-top: 1px solid #000000;
-	grid-template-columns: repeat(3, minmax(20vw, 1fr));
-	row-gap: 1em;
-	column-gap: .5em;
-	border-bottom: 1px solid #000000;
-	padding: 1em 0 1em 0;
-	margin: 1em 0 1em 0;
 }
 .profile header {
 	display: flex;
@@ -151,57 +128,4 @@ body {
 .profile header a, .results header a {
 	font-size: 1.2em;
 	margin: -.75em 0 .55em 0;
-}
-.include .title, .exclude .title, .options-list .option .title.is-6 {
-	font-weight: normal;
-	margin: 1em 0 .5em 0;
-}
-.options-list > div {
-	border-right: 1px solid purple; 
-	padding: 1em;
-}
-.options-list > div:last-child {
-	border: none;
-}
-.options-list .option .title.is-4 {
-	margin: 0.2em 0px 0.5em;
-	font-weight: normal;
-	border-bottom: 1px solid #000000;
-	padding-bottom: 9px;
-}
-a.close:hover {
-	color: #f20000;
-	opacity: .8;
-}
-.close {
-	font-size: 1.5em;
-	color: #f20000;
-	grid-column-start: 1;
-	grid-column-end: 4;
-}
-@media (max-width: 750px) {
-	.listing-actions {
-		margin: 0 auto;
-	}
-	.listing-details ul { 
-		display: flex; 
-		flex-flow: row wrap; 
-		justify-content: space-between; 
-	}
-	.options-list {
-		grid-template-columns: none;
-	}
-	.opt-stack dl {
-		flex-direction: row;
-		flex-flow: row wrap;
-	}
-	.opt-stack dl > dd {
-		margin: .5em .24em 1em 0;
-	}
-	.options-list > div {
-		border-right: none;
-	}
-	.options-list > div:not(:first-child) {
-		padding: 0 1em .5em 1em;
-	}
 }

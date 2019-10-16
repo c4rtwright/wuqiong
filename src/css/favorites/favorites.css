@@ -1,15 +1,11 @@
 body {
 	font-family: "Open Sans", sans-serif;
 }
+.job-desc {
+	padding: .75em;
+}
 .job-pages {
     margin: 3em auto auto auto;
-}
-.job-res {
-	border: 1px solid black;
-	border-radius: 4px;
-	display: flex;
-	flex-flow: row wrap;
-	margin: 1em auto auto auto;
 }
 .job-det > div {
 	display: inline-block;
@@ -26,35 +22,22 @@ body {
 .job-inf {
 	margin: .5em 0 0 1em;
 }
-section.jobs {
+section.favorites {
 	padding: 0;
 }
-.job-desc {
-	padding: .75em;
-}
-.include .keyword,
-.exclude .keyword {
-	font-size: 1em;
-	padding-right: .2em;
-	color: #1acccc;
-	cursor: pointer;
-}
-.section-header {
-	border-bottom: 1px solid #000000;
-}
-.section-header h3 {
-	margin: 0 0 .3em 0;
-}
-.listing-actions {
-	margin: -2em auto -1em auto;
+.results > header > h3 {
+	margin: .15em 0 .5em 0;
 }
 .opt-stack dl {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-flow: row wrap;
 	justify-content: space-between;
 }
-
-a.report-listing {
+.thumbnail img {
+	margin: 0 auto;
+}
+a.remove-favorite {
 	color: #f20000;
 	vertical-align: sub;
 	margin: 0 0 0 .5em;
@@ -72,6 +55,12 @@ a.report-listing {
 	background-color: #ffffff;
 	border: 1px solid #c8c8c8;
 }
+.section-header {
+	border-bottom: 1px solid #000000;
+}
+.section-header h3 {
+	margin: 0 0 .3em 0;
+}
 .navbar-brand a.navbar-item:first-child {
 	font-size: 2em;
 	font-family: "Lato", sans-serif;
@@ -88,11 +77,11 @@ a.report-listing {
 }
 .options-list {
 	display: grid;
-	border-top: 1px solid #000000;
+	border-top: 1px solid black;
 	grid-template-columns: repeat(3, minmax(20vw, 1fr));
 	row-gap: 1em;
 	column-gap: .5em;
-	border-bottom: 1px solid #000000;
+	border-bottom: 1px solid black;
 	padding: 1em 0 1em 0;
 	margin: 1em 0 1em 0;
 }
@@ -118,7 +107,7 @@ a.report-listing {
 .options-list .option .title.is-4 {
 	margin: 0.2em 0px 0.5em;
 	font-weight: normal;
-	border-bottom: 1px solid #000000;
+	border-bottom: 1px solid black;
 	padding-bottom: 9px;
 }
 a.close:hover {
@@ -131,19 +120,73 @@ a.close:hover {
 	grid-column-start: 1;
 	grid-column-end: 4;
 }
-.search-form .search-button {
+.job-res {
+	border: 1px solid black;
+	border-radius: 4px;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 1em auto auto auto;
+}
+.thumb {
+	border: 1px solid red;
+	padding: 5px;
+	display: inline-block;
+}
+.company-info {
+	border: 1px solid green;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 1em
+}
+.company-info p:first-child {
+	font-size: 1.3em;
+	font-family: "Lato", sans-serif;
+	margin: 0 0 11px 0;
+}
+.company-info p {
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.15em;
+}
+.level.job-benefits {
+	border: 1px solid blue;
+	margin: 1.5em 0 0 0;
+}
+
+.level.job-benefits .heading {
+	font-size: 1em;
+	text-transform: capitalize;
+}
+.level.job-benefits .title {
+	font-size: 1em;
+	font-weight: normal;
+}
+.listing-info ul > li > p {
+	font-size: 1.34em;
+}
+.listing-info .job-title {
+	font-weight: bold;
+}
+.listing-details > ul {
+	font-size: 1.35em;
+}
+.listing-info p,
+.listing-details .fa-ul > li {
+	padding: .35em 0 0 0;
+}
+.listing-details .fa-ul .fa-li {
+	top: 10px;
+	font-size: 1.25em;
+}
+.filter-favorites .search-button {
 	margin: .5em 0 0 0;
 }
 .footer {
 	border-top: 1px solid #ccc;
 }
 .footer-links > .column {
-    padding: 5em;
+	padding: 5em;
 }
 @media (max-width: 750px) {
-	.listing-actions {
-		margin: 0 auto;
-	}
 	.listing-details ul { 
 		display: flex; 
 		flex-flow: row wrap; 
@@ -151,10 +194,6 @@ a.close:hover {
 	}
 	.options-list {
 		grid-template-columns: none;
-	}
-	.opt-stack dl {
-		flex-direction: row;
-		flex-flow: row wrap;
 	}
 	.opt-stack dl > dd {
 		margin: .5em .24em 1em 0;
