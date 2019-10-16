@@ -1,3 +1,28 @@
+body {
+	font-family: "Open Sans", sans-serif;
+}
+.job-res {
+	border: 1px solid black;
+	border-radius: 4px;
+	display: flex;
+	flex-flow: row wrap;
+	margin: 1em auto auto auto;
+}
+.job-det > div {
+	display: inline-block;
+	margin: 0 1em 0 0;
+}
+.job-head {
+	background-color: #efefef;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	display: flex;
+	height: 100%;
+	width: 100%;
+}
+.job-inf {
+	margin: .5em 0 0 1em;
+}
 section.jobs {
 	padding: 0;
 }
@@ -23,12 +48,7 @@ section.jobs {
 	flex-direction: column;
 	justify-content: space-between;
 }
-.job-res .columns:first-child {
-	flex-flow: row wrap;
-}
-.thumbnail img {
-	margin: 0 auto;
-}
+
 a.report-listing {
 	color: #f20000;
 	vertical-align: sub;
@@ -36,9 +56,6 @@ a.report-listing {
 }
 .section {
 	padding: 1rem 1.5rem;
-}
-body {
-	font-family: "Open Sans", sans-serif;
 }
 .search {
 	margin: 2em 2em 2em 2em;
@@ -108,60 +125,6 @@ a.close:hover {
 	color: #f20000;
 	grid-column-start: 1;
 	grid-column-end: 4;
-}
-.job-res {
-	padding: 1em 1em 1em 1em;
-	margin: 1em 1em .5em 1em;
-}
-.thumb {
-	border: 1px solid red;
-	padding: 5px;
-	display: inline-block;
-}
-.company-info {
-	border: 1px solid green;
-	display: inline-block;
-	vertical-align: top;
-	margin: 0 0 0 1em
-}
-.company-info p:first-child {
-	font-size: 1.3em;
-	font-family: "Lato", sans-serif;
-	margin: 0 0 11px 0;
-}
-.company-info p {
-	font-family: "Open Sans", sans-serif;
-	font-size: 1.15em;
-}
-.level.job-benefits {
-	border: 1px solid blue;
-	margin: 1.5em 0 0 0;
-}
-
-.level.job-benefits .heading {
-	font-size: 1em;
-	text-transform: capitalize;
-}
-.level.job-benefits .title {
-	font-size: 1em;
-	font-weight: normal;
-}
-.listing-info ul > li > p {
-	font-size: 1.34em;
-}
-.listing-info .job-title {
-	font-weight: bold;
-}
-.listing-details > ul {
-	font-size: 1.35em;
-}
-.listing-info p,
-.listing-details .fa-ul > li {
-	padding: .35em 0 0 0;
-}
-.listing-details .fa-ul .fa-li {
-	top: 10px;
-	font-size: 1.25em;
 }
 .search-form .search-button {
 	margin: .5em 0 0 0;

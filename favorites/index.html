@@ -7,6 +7,22 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 		<link href="../src/css/main.css" rel="stylesheet">
 		<style>
+			.job-det > div {
+				display: inline-block;
+				margin: 0 1em 0 0;
+			}
+			.job-head {
+				background-color: #efefef;
+				border: 1px solid #ddd;
+				border-radius: 5px;
+				display: flex;
+				height: 100%;
+				width: 100%;
+			}
+			.job-inf {
+				margin: .5em 0 0 1em;
+			}
+			
 			section.favorites {
 				padding: 0;
 			}
@@ -21,9 +37,6 @@
 				flex-direction: row;
 				flex-flow: row wrap;
 				justify-content: space-between;
-			}
-			.job-res .columns:first-child {
-				flex-flow: row wrap;
 			}
 			.thumbnail img {
 				margin: 0 auto;
@@ -107,8 +120,11 @@
 				grid-column-end: 4;
 			}
 			.job-res {
-				padding: 1em 1em 1em 1em;
-				margin: 1em 1em .5em 1em;
+				border: 1px solid black;
+				border-radius: 4px;
+				display: flex;
+				flex-flow: row wrap;
+				margin: 1em auto auto auto;
 			}
 			.thumb {
 				border: 1px solid red;
@@ -195,45 +211,36 @@
 					<header class='section-header'>
 						<h1 class="title">My Favorites</h1>
 					</header>
-					<div class="job-res" v-for="(i, key) in results">
-						<div class="columns is-mobile">
-							<div class="column is-one-third thumbnail">
-								<img class="image" src="http://lorempixel.com/150/150/" alt="thumb">
-							</div>
-							<div class="column listing-info">
-								<ul>
-									<li><p class="company-name">{{i.listing_info.company_name}}</p></li>
-									<li><p class="job-title">Front-End Developer</p></li>
-									<li><p class="job-location">San Francisco, California</p></li>
-								</ul>
-							</div>
-							<div class="column listing-details">
-								<ul class="fa-ul">
-									<li><span class="fa-li"><i class="fas fa-dollar-sign"></i></span>$50k - $60k / year</li>
-									<li><span class="fa-li"><i class="fas fa-calendar-day"></i></span>Posted last week</li>
-									<li><span class="fa-li"><i class="fas fa-clock"></i></span>Full-Time</li>
-									<li><span class="fa-li"><i class="fas fa-laptop-code"></i></span>Remote Possible</span>
-								</ul>
+					<div v-for="(i, key) in results" class="job-res">
+					    <div class="job-head">
+							<figure class="comp-thumb image is-128x128">
+								<img src="../assets/img/main/testi-user-avatars/2.jpg" alt="compthumb">
+							</figure>
+							<div class="job-inf">
+							  <h3 class="title is-3">Front-End Web Shit II</h3>
+							  <h3 class="subtitle">Splashdown LLC</h3>
+							  <div class="job-det">
+							      <div>
+									  <i class="fas fa-dollar-sign"></i>
+								      $50k - $60k / year
+								  </div>
+								  <div>
+								      <i class="fas fa-calendar-day"></i>
+								      ADD-DATE-HERE
+								  </div>
+								  <div>
+								      <i class="fas fa-clock"></i>
+									  Full-Time
+								  </div>
+								  <div>
+								      <i class="fas fa-laptop-code"></i>
+									  Remote Possible
+								  </div>
 								</div>
 							</div>
-							<div class="columns listing-actions is-centered">
-								<div class="column is-one-quarter">
-									<a class="remove-favorite">Remove From Favorites</a>
-								</div>
-							</div>
-							<div class="divider">
-								<div class="left" style="display: flex;flex-direction: column;justify-content: inherit;">
-									<hr>
-									<hr>
-								</div>
-								<div class="center" style="align-self: center;margin: 0 1em 0 1em;">
-									<i class="fas fa-chevron-down" style=""></i>
-								</div>
-								<div class="right" style="display: flex;flex-direction: column;justify-content: inherit;">
-									<hr>
-									<hr>
-								</div>
-							</div>
+						</div>
+						<div class="job-desc">
+							Morbi eu libero tortor. Donec facilisis diam eu commodo convallis. Aliquam erat volutpat. Etiam aliquet orci eu turpis ultricies maximus. Nullam nec diam non augue vulputate fermentum. Nulla est tellus, aliquam sed augue in, blandit porttitor libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque cursus turpis nec sagittis faucibus. 
 						</div>
 					</div>
 				</section>

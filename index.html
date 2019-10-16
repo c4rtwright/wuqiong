@@ -8,43 +8,72 @@
 		<link href="src/css/main.css" rel="stylesheet">
 	</head>
 	<body>
-		<section class="section">
-			<header class="hero">
-				<section class="hero-body">
-					<div class="container">
-						<h1 class="title is-1">Wuqiong</h1>
-						<h2 class="subtitle">Endless Job Stream</h2>
+		<main id="app">
+			<section v-on:click="closeLoginModal" v-if="showLoginModal" class="modal-fade">
+				<section class="login">
+					<div>
+						Already a member? Sign in here!
 					</div>
-				</section>
-			</header>
-			<section class="section">
-				<div class="container">
-					<div class="columns">
-						<div class="column is-three-fifths content copy">
-							<p>Wuqiong is the premier place to simulate the endless horror of the job search!</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus semper congue metus at imperdiet. Fusce aliquam laoreet libero, eu eleifend mi cursus vitae. Morbi interdum sed dui quis interdum.</p>
+					<div class="field">
+						<label class="label is-medium">Email</label>
+						<div class="control">
+							<input class="input is-medium" type="text" placeholder="me@example.com">
+						</div>    
+					</div>
+					<div class="field">
+						<label class="label is-medium" for="password">Password</label>
+						<div class="control">
+							<input class="input is-medium" type="password">
 						</div>
-						<div class="column">
-							<section class="login">
-								<div>
-									Already a member? Sign in here!
-								</div>
-								<div class="field">
-									<label class="label is-medium">Email</label>
-									<div class="control">
-										<input class="input is-medium" type="text" placeholder="me@example.com">
-									</div>    
-								</div>
-								<div class="field">
-									<label class="label is-medium" for="password">Password</label>
-									<div class="control">
-										<input class="input is-medium" type="password">
-									</div>
-								</div>
-								<div class="control">
-									<a class="button is-info">Search</a>
-								</div>
-							</section>
+					</div>
+					<div class="control">
+						<a class="button is-info">Login</a>
+					</div>
+					<a class="forgot-password" href="#">
+						Forgot your password?
+					</a>
+				</section>
+			</section>
+			<section class="section">
+				<header class="hero">
+					<section class="hero-body">
+						<div class="container head-cont">
+							<div>
+								<h1 class="title is-1">Wuqiong</h1>
+								<h2 class="subtitle">Endless Job Stream</h2>
+							</div>
+							<div class="access-container">
+								<div class="button is-blank">Sign Up</div>
+								<div v-on:click="toggleLoginModal()" class="button is-primary">Log In</div>
+							</div>
+						</div>
+					</section>
+				</header>
+				<div class="container intro-container">					
+					<div class="columns">
+						<div class="column intro-copy">
+							<p>Wuqiong is the premier place to simulate the endless horror of the job search!</p>
+						</div>
+						<div class="column is-three-fourths intro-img">
+							<figure class="image">
+								<img src="assets/img/main/intro-col-img.jpg" alt="work">
+							</figure>
+						</div>
+					</div>
+				</div>
+				<div class="container beni-container">
+					<h1 class="title is-1">
+							Why Wuqiong?
+					</h1>
+					<div class="divider">
+						<div class="left">
+							<hr>
+						</div>
+						<div class="center">
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="right">
+							<hr>
 						</div>
 					</div>
 					<div class="benefits">
@@ -61,22 +90,199 @@
 							<i class="fas fa-heart"></i>
 							<i class="fas fa-plus"></i>
 							<i class="fas fa-bookmark"></i>
+							<h3 class="title is-3">Save The Best</h3>
+							<h3 class="subtitle">Save only the perfect gigs that you're most qualified for</h3>
 						</div>
 
 						<div class="benefit">
 							<i class="fas fa-user-tie"></i>
 							<i class="fas fa-plus"></i>
 							<i class="fas fa-briefcase"></i>
+							<h3 class="title is-3">Direct-Hire Only</h3>
+							<h3 class="subtitle">No recruiters means you deal only deal with the company</h3>
+						</div>
+					</div>
+				</div>
+				<div class="container emplyr-container">
+					<div class="columns">
+						<div class="column emplyr-col-img">
+							<figure class="image">
+								<img src="assets/img/main/emplyr-cont-img.jpeg" alt='emplyr'>
+							</figure>
+						</div>
+						<div class="column emplyr-col-copy">
+							<h1 class="title is-1">
+								Find the Perfect Gig
+							</h1>
+							<div class="divider">
+								<div class="left">
+									<hr>
+								</div>
+								<div class="center">
+									<i class="fas fa-chevron-down"></i>
+								</div>
+								<div class="right">
+									<hr>
+								</div>
+							</div>
+							<span>
+								Proin volutpat mi eu urna blandit, id sagittis neque mollis. Vestibulum fermentum, justo eget suscipit vehicula, quam lectus pharetra arcu, et pellentesque urna lectus sit amet ante.
+							</span>
+							<div class="button is-info">
+								Search Listings
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container testi-container">
+					<h1 class="title is-1">What Folks Think Of Us</h1>
+					<div class="divider">
+						<div class="left">
+							<hr>
+						</div>
+						<div class="center">
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="right">
+							<hr>
+						</div>
+					</div>
+					<div class="columns testimonials">
+						<div class="column">
+							<div class="card">
+								<div class="card-content">
+									<div class="media">
+										<div class="media-left">
+											<figure class="image is-128x128">
+												<img src="assets/img/main/testi-user-avatars/1.jpg" alt="usr avatar">
+											</figure>
+										</div>
+										<div class="media-content">
+											<p class="title is-4">John Smith</p>
+											<p class="subtitle is-6">@johnsmith</p>
+										</div>
+									</div>
+									<div class="testi-content content">
+										<blockquote>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.
+										</blockquote>
+										<span class="testi-user-location">San Francisco, CA</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="card">
+								<div class="card-content">
+									<div class="media">
+										<div class="media-left">
+											<figure class="image is-128x128">
+												<img src="assets/img/main/testi-user-avatars/2.jpg" alt="usr avatar">
+											</figure>
+										</div>
+										<div class="media-content">
+											<p class="title is-4">John Smith</p>
+											<p class="subtitle is-6">@johnsmith</p>
+										</div>
+									</div>
+									<div class="testi-content content">
+										<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</blockquote>
+										<span class="testi-user-location">San Francisco, CA</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="column">
+							<div class="card">
+								<div class="card-content">
+									<div class="media">
+										<div class="media-left">
+											<figure class="image is-128x128">
+												<img src="assets/img/main/testi-user-avatars/3.jpg" alt="usr avatar">
+											</figure>
+										</div>
+										<div class="media-content">
+											<p class="title is-4">John Smith</p>
+											<p class="subtitle is-6">@johnsmith</p>
+										</div>
+									</div>
+									<div class="testi-content content">
+										<blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</blockquote>
+										<span class="testi-user-location">San Francisco, CA</span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-		</section>
+			<div class="footer">
+				<div class="columns footer-links">
+					<div class="column">
+						<h4 class="title is-4">Footer Head 1</h4>
+						<ul>
+							<li>
+								<a href="#">About Us</a>
+							</li>
+							<li>
+								<a href="#">Privacy Policy</a>
+							</li>
+							<li>
+								<a href="#">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+					<div class="column">
+						<h3 class="title is-4">Footer Head 2</h3>
+						<ul>
+							<li>
+								<a href="#">About Us</a>
+							</li>
+							<li>
+								<a href="#">Privacy Policy</a>
+							</li>
+							<li>
+								<a href="#">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+					<div class="column">
+						<h3 class="title is-4">Footer Head 3</h3>
+						<ul>
+							<li>
+								<a href="#">About Us</a>
+							</li>
+							<li>
+								<a href="#">Privacy Policy</a>
+							</li>
+							<li>
+								<a href="#">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</main>
 	</body>
 </html>
 <script src="src/js/vue/vue.min.js"></script>
 <script>
-	for (i = 1; i <= 12; i*i) {
-		console.log(i)
-	}
+	let vm = new Vue({
+		el: '#app',
+		data: {
+			showLoginModal: false
+		},
+		methods: {
+			toggleLoginModal() {
+				if (this.showLoginModal == false) {
+					this.showLoginModal = true;
+				}
+			},
+			closeLoginModal() {
+				if (this.showLoginModal == true) {
+					this.showLoginModal = false;
+				}
+			}
+		}
+	})
 </script>
